@@ -1,8 +1,7 @@
 FROM jenkins/jenkins:latest
 ENV JAVA_OPTS=-Djenkins.install.runSetupWizard=false
-# Distributed Builds plugins
-RUN /usr/local/bin/install-plugins.sh credentials-binding greenballs
 
+RUN /usr/local/bin/install-plugins.sh credentials-binding greenballs
 COPY codebuddies.config.xml /usr/share/jenkins/ref/jobs/codebuddies-deploy-PR/config.xml
 
 USER root
